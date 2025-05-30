@@ -2,7 +2,6 @@
   {
     "settings_website_icons_json": {
       "rel_json": "icon",
-      "type_json": "img.png",
       "href_path_json": "/IMG Ordner",
       "href_under_path_json": "/Website icon Ordner/",
       "href_file_json": "twitch website icon.png"
