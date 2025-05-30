@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const domain = window.location.hostname;
-  const embedUrl = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${domain}&autoplay=true&muted=true`;
+  const embedUrl = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${domain}&autoplay=true`;
 
   twitchEmbed.src = embedUrl;
 });
