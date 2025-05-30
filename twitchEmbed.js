@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const domain = window.location.hostname;
+    const domain = window.location.href;
 
     twitchEmbed.src = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${domain}&autoplay=true&muted=false`;
   }
