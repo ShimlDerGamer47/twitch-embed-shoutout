@@ -1,13 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const html = document.documentElement;
   const head = document.head;
-  const body = document.body;
-  const link = document.querySelector("link");
-
-  const websiteUrl = window.location.href;
-  const domain = window.location.hostname;
-
-  const domainUrl = websiteUrl || domain;
+  const link = document.querySelector("link[rel='icon']");
 
   // HTML Sprache und Titel setzen
   function htmlHeadToken() {
@@ -45,9 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
           iconData.href_under_path_json +
           iconData.href_file_json;
 
-        link.rel = iconData.rel_json;
-        link.type = iconData.type_json;
-        link.href = hrefFullPath;
+        if (link) {
+          link.rel = iconData.rel_json;
+          link.type = "image/png"; // Besser immer image/png für PNGs
+          link.href = hrefFullPath;
+        }
       })
       .catch((error) => console.error("Fehler:", error));
   }
@@ -55,10 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Twitch Clip Embed URL setzen
   function twitchEmbedToken() {
-    const twitchEmbedContainer = document.getElementById(
-      "twitchEmbedContainerId"
-    );
-    if (!twitchEmbedContainer) return;
+    const twitchEmbed = document.getElementById("twitchEmbedId");
+    if (!twitchEmbed) return;
 
     const params = new URLSearchParams(window.location.search);
     const clipId = params.get("clipId");
@@ -71,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const domain = window.location.hostname;
     const fullUrl = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${domain}&autoplay=true&muted=false`;
 
-    twitchEmbedContainer.src = fullUrl;
+    twitchEmbed.src = fullUrl;
   }
   twitchEmbedToken();
 });
