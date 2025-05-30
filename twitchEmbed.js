@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const domain = window.location.hostname;
 
-    twitchEmbed.src = `https://clips.twitch.tv/embed?clip=${clipId}&parent=${domain}&autoplay=true&muted=false`;
+    twitchEmbed.src = `https://clips.twitch.tv/embed?clip=clipId&parent=${domain}&autoplay=true&muted=false`;
   }
   twitchEmbedToken();
 });
